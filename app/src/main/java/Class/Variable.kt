@@ -31,6 +31,9 @@ fun main(){
     print(product(x=5, y=0))
     printArray(names)
 
+    val numbers = arrayOf(1,2,3,4,5,6,7,8,9,10)
+    isEven(numbers)
+
 
 }
     fun add(): Int{
@@ -53,4 +56,12 @@ fun printArray(names:Array<String>) {
 
 }
 
-
+fun isEven(numbers:Array<Int>){
+    for(number in numbers){
+        if(number % 2 == 0){
+            println("the number $number is even")
+        } else {
+            println("the number $number is uneven/odd")
+        }
+    }
+}
