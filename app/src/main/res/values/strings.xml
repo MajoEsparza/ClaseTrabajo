@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ClaseTrabajo</string>
+    <string name="example_text">Hello World From Strings.xml</string>
+    <string name="android">Logo animado de Android.xml</string>
 </resources>
