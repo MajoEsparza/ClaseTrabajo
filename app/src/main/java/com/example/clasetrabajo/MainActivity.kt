@@ -41,12 +41,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.clasetrabajo.ui.theme.HomeScreen
 import com.example.clasetrabajo.ui.theme.MainMenuScreen
+import com.example.clasetrabajo.ui.theme.TestScreen
 import com.example.clasetrabajo.ui.theme.ClaseTrabajoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //to program in the entire screen
         //enableEdgeToEdge()
 
         //screen interface content
@@ -86,7 +89,6 @@ class MainActivity : ComponentActivity() {
         Text(text = "Welcome")
         Text(name)
     }
-
     @Preview(showBackground = true)
     @Composable
     fun ModifierExample1(){
@@ -115,7 +117,6 @@ class MainActivity : ComponentActivity() {
     fun clickAction(){
         println("Column clicked")
     }
-
     @Preview(showBackground = true)
     @Composable
     fun ModifierExample3(){
@@ -137,71 +138,70 @@ class MainActivity : ComponentActivity() {
 
         }
     }
+}
 
-    @Preview(showBackground = true)
-    @Composable
-    fun ModifierExample4(){
-        Box(
+@Preview(showBackground = true)
+@Composable
+fun ModifierExample4(){
+    Box(
+        modifier = Modifier
+            .background(Color.Blue)
+            .padding(10.dp)
+            .height(300.dp)
+            .width(300.dp)
+    ){
+        //Text on top
+        Text("1", Modifier.align(Alignment.TopStart))
+        Text("2", Modifier.align(Alignment.TopCenter))
+        Text("3", Modifier.align(Alignment.TopEnd))
+        //Text on center
+        Text("4", Modifier.align(Alignment.CenterStart))
+        Text("5", Modifier.align(Alignment.Center))
+        Text("6", Modifier.align(Alignment.CenterEnd))
+        //Text on bottom
+        Text("7", Modifier.align(Alignment.BottomStart))
+        Text("8", Modifier.align(Alignment.BottomCenter))
+        Text("9", Modifier.align(Alignment.BottomEnd))
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun CustomText(){
+    Column(){
+        Text(
+            stringResource(R.string.example_text),
+            color = colorResource(R.color.purple_500),
+            fontSize = 20.sp,
+            fontStyle = FontStyle.Italic,
+            fontWeight = FontWeight.ExtraBold
+        )
+        //creating a list of colors to use it in the gradient
+        val gradientColors = listOf(Color.Red, Color.Blue, Color.Green, colorResource(R.color.black))
+        Text(
+            stringResource(R.string.example_text),
+            style = TextStyle(brush = Brush.horizontalGradient(colors = gradientColors))
+        )
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun picture(){
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Black)
+            .height(300.dp)
+    ){
+        Image(
             modifier = Modifier
-                .background(Color.Blue)
-                .padding(10.dp)
-                .height(300.dp)
-                .width(300.dp)
-        ){
-            //Text on top
-            Text("1", Modifier.align(Alignment.TopStart))
-            Text("2", Modifier.align(Alignment.TopCenter))
-            Text("3", Modifier.align(Alignment.TopEnd))
-            //Text on center
-            Text("4", Modifier.align(Alignment.CenterStart))
-            Text("5", Modifier.align(Alignment.Center))
-            Text("6", Modifier.align(Alignment.CenterEnd))
-            //Text on bottom
-            Text("7", Modifier.align(Alignment.BottomStart))
-            Text("8", Modifier.align(Alignment.BottomCenter))
-            Text("9", Modifier.align(Alignment.BottomEnd))
-        }
+                .fillMaxWidth(),
+            painter = painterResource(R.drawable.android),
+            contentDescription = "Logo Android",
+            contentScale = ContentScale.Crop
+        )
     }
-
-    @Preview(showBackground = true)
-    @Composable
-    fun CustomText(){
-        Column(){
-            Text(
-                stringResource(R.string.example_text),
-                color = colorResource(R.color.purple_500),
-                fontSize = 20.sp,
-                fontStyle = FontStyle.Italic,
-                fontWeight = FontWeight.ExtraBold
-            )
-            //creating a list of colors to use it in the gradient
-            val gradientColors = listOf(Color.Red, Color.Blue, Color.Green, colorResource(R.color.black))
-            Text(
-                stringResource(R.string.example_text),
-                style = TextStyle(brush = Brush.horizontalGradient(colors = gradientColors))
-            )
-        }
-    }
-    @Preview(showBackground = true)
-    @Composable
-    fun picture(){
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.Black)
-                .height(300.dp)
-        ){
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                painter = painterResource(R.drawable.android),
-                contentDescription = "Logo Android",
-                contentScale = ContentScale.Crop
-
-            )
-        }
-    }
-} //Close class
+}
+ //}Close class
 @Composable
 fun ComposeMultiScreenApp(){
     val navController = rememberNavController()
@@ -210,7 +210,10 @@ fun ComposeMultiScreenApp(){
 @Composable
 fun SetupNavGraph(navController: NavHostController){
     NavHost(navController = navController, startDestination = "mainMenu"){
+        //add route name for every screen
         composable("mainMenu"){ MainMenuScreen(navController) }
+        composable("homeScreen") {HomeScreen(navController) }
+        composable("testScreen") {TestScreen(navController) }
+
     }
 }
-
