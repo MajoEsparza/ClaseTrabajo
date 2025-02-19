@@ -1,10 +1,11 @@
 package com.example.clasetrabajo.ui.theme
 
-import android.graphics.drawable.Icon
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -83,7 +84,7 @@ fun Content1(){
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp),
-            painter = painterResource(R.drawable.android),
+            painter = painterResource(R.drawable.android1),
             contentDescription = "Android",
             contentScale = ContentScale.Crop
         )
@@ -108,32 +109,35 @@ fun Content2() {
         Row() {
             Image(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxHeight()
                     .width(80.dp)
-                    .height(100.dp),
-                painter = painterResource(R.drawable.android),
+                    .size(100.dp)
+                    .height(200.dp),
+                painter = painterResource(R.drawable.android1),
                 contentDescription = "Android",
-                contentScale = ContentScale.Inside
+                contentScale = ContentScale.Crop
             )
-        }
-        Column() {
-            Text(
-                text = "This is a title",
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .padding(5.dp)
-            )
-            Text(
-                text = stringResource(R.string.android),
-                textAlign = TextAlign.Left,
-                lineHeight = 14.sp,
-                fontSize = 10.sp,
-                modifier = Modifier.padding(10.dp)
-            )
+            Column() {
+                Text(
+                    text = "This is a title",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(5.dp)
+                )
+                Text(
+                    text = stringResource(R.string.android),
+                    textAlign = TextAlign.Left,
+                    lineHeight = 14.sp,
+                    fontSize = 10.sp,
+                    modifier = Modifier.padding(10.dp)
+                )
+            }
         }
     }
 }
+
+
 @Preview
 @Composable
 //creating a navigation bar/menu
