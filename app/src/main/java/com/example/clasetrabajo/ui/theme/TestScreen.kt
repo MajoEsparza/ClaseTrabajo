@@ -1,6 +1,5 @@
 package com.example.clasetrabajo.ui.theme
 
-import android.graphics.Paint.Align
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -10,11 +9,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,63 +34,56 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.clasetrabajo.ComposeMultiScreenApp
 import com.example.clasetrabajo.R
-import com.example.clasetrabajo.ui.theme.ClaseTrabajoTheme
 
 @Composable
-fun TestScreen(navController: NavHostController){
-    Column() {
-        Column(){
-            TextComposable("Carlos")
+fun TestScreen(navController: NavHostController) {
+    Column(
+        modifier = Modifier
+        .verticalScroll(rememberScrollState())
+    ) {
+
+
+        Column() {
+            Column(
+                modifier = Modifier
+                    .padding(2.dp, 10.dp, 0.dp, 10.dp)
+            ) {
+                Text("Test Screen")
+            }
+            TextComposable("Karime")
             TextComposable()
             TextComposable()
             TextComposable()
         }
-        Row(){
+        Row() {
             TextComposable()
             TextComposable()
             TextComposable()
             TextComposable()
         }
-        Column(){
+        Column() {
             ModifierExample1()
             ModifierExample2()
             //Comment if the screen ran out of space
-            //ModifierExample3()
-            //ModifierExample4()
+            ModifierExample3()
+            ModifierExample4()
             CustomText()
             Picture()
         }
-    }
-    Column(
-        modifier = Modifier
-            .padding(2.dp)
-            .fillMaxSize()
-
-    ){
-
-        Text("Test Screen")
         Button(
-
-            onClick = {navController.navigate("mainMenu")}
-            /*need to align the button to the bottom so it doesn't appear on top
-            of the content*/
-            //Modifier.align(Alignment.TopStart)
-
-
-
+            onClick = { navController.navigate("mainMenu")}
         )
         {
             Text("Return to Main Menu")
-
         }
         Button(
-            onClick = {navController.navigate("homeScreen")}
+            onClick = { navController.navigate("homeScreen")}
         )
         {
             Text("Go to Home Screen")
         }
+
     }
 }
 @Composable
@@ -104,7 +97,6 @@ fun TextComposable(name:String = "Empty"){
 fun ModifierExample1(){
     Column(
         modifier = Modifier
-            //Left, Top, Right, Bottom
             .padding(40.dp, 30.dp, 20.dp, 10.dp)
     ){
         Text("Hello World")
@@ -135,8 +127,8 @@ fun ModifierExample3(){
         modifier = Modifier
             .fillMaxHeight()
             .padding(16.dp)
-            .background(Color.Green)
-            .border(width = 2.dp, color = Color.Magenta)
+            .background(Color.Yellow)
+            .border(width = 2.dp, color = Color.DarkGray)
             .width(200.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         //Use all of the available space in the screen evenly
@@ -155,10 +147,10 @@ fun ModifierExample3(){
 fun ModifierExample4(){
     Box(
         modifier = Modifier
-            .background(Color.Blue)
+            .background(Color.Magenta)
             .padding(10.dp)
-            .height(300.dp)
-            .width(300.dp)
+            .height(250.dp)
+            .width(250.dp)
     ){
         //Text on top
         Text("1", Modifier.align(TopStart))
@@ -206,7 +198,7 @@ fun Picture(){
         Image(
             modifier = Modifier
                 .fillMaxWidth(),
-            painter = painterResource(R.drawable.android),
+            painter = painterResource(R.drawable.android1),
             contentDescription = "Logo Android",
             contentScale = ContentScale.Crop
         )
