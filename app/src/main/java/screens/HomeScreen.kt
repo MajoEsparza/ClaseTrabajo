@@ -1,4 +1,4 @@
-package com.example.clasetrabajo.ui.theme
+package screens
 
 
 import androidx.compose.foundation.Image
@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.clasetrabajo.R
+
 @Composable
 fun HomeScreen(navController: NavHostController){
     topbar()
@@ -146,7 +147,7 @@ fun topbar(){
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
-            .background(Color.Black)
+            .background(Color.Cyan)
             .padding(10.dp)
     ){
         Icon(

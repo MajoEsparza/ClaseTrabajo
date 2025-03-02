@@ -1,4 +1,4 @@
-package com.example.clasetrabajo.ui.theme
+package screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
 @Composable
@@ -25,6 +24,18 @@ fun MainMenuScreen(navController: NavHostController){
         )
         {
             Text("Go to Home Screen")
+        }
+        Button(
+        onClick = {navController.navigate("testscreen")}
+        )
+        {
+            Text("Go to Test Screen")
+        }
+        Button(
+            onClick = {navController.navigate("InterfaceScreen")}
+        )
+        {
+            Text("Go to Interface Screen")
         }
     }
 }
