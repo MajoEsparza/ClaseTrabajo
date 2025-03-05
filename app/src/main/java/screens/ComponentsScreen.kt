@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.AlertDialog
@@ -89,7 +90,7 @@ fun ComponentsScreen(navController: NavHostController){
                 Text("Menu", modifier = Modifier.padding(16.dp))
                 HorizontalDivider()
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Buttons")},
                     selected = false,
                     onClick = {
@@ -103,7 +104,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Floating Buttons")},
                     selected = false,
                     onClick = {
@@ -117,7 +118,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Progress")},
                     selected = false,
                     onClick = {
@@ -131,7 +132,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Chips")},
                     selected = false,
                     onClick = {
@@ -145,7 +146,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Sliders")},
                     selected = false,
                     onClick = {
@@ -159,7 +160,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Switches")},
                     selected = false,
                     onClick = {
@@ -173,7 +174,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Badge")},
                     selected = false,
                     onClick = {
@@ -187,7 +188,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Snack Bars")},
                     selected = false,
                     onClick = {
@@ -201,7 +202,7 @@ fun ComponentsScreen(navController: NavHostController){
                     }
                 )
                 NavigationDrawerItem(
-                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    icon = {Icon(Icons.Filled.PlayArrow, contentDescription = "")},
                     label = {Text("Alert Dialogs")},
                     selected = false,
                     onClick = {
