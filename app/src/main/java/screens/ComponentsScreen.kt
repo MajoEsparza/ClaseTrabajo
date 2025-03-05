@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -23,18 +24,23 @@ import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.InputChipDefaults
 import androidx.compose.material3.LargeFloatingActionButton
 import androidx.compose.material3.LeadingIconTab
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.ModalDrawerSheet
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SmallFloatingActionButton
@@ -43,11 +49,13 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -70,6 +78,179 @@ fun ComponentsScreen(navController: NavHostController){
     //Badge()
     //SnackBars()
     //AlertDialogs()
+
+    var option by rememberSaveable { mutableStateOf("buttons") }
+    var drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    var scope = rememberCoroutineScope()
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            ModalDrawerSheet {
+                Text("Menu", modifier = Modifier.padding(16.dp))
+                HorizontalDivider()
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Buttons")},
+                    selected = false,
+                    onClick = {
+                        option = "buttons"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Floating Buttons")},
+                    selected = false,
+                    onClick = {
+                        option = "floating buttons"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Progress")},
+                    selected = false,
+                    onClick = {
+                        option = "progress"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Chips")},
+                    selected = false,
+                    onClick = {
+                        option = "chips"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Sliders")},
+                    selected = false,
+                    onClick = {
+                        option = "sliders"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Switches")},
+                    selected = false,
+                    onClick = {
+                        option = "switches"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Badge")},
+                    selected = false,
+                    onClick = {
+                        option = "badge"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Snack Bars")},
+                    selected = false,
+                    onClick = {
+                        option = "snack bars"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = {Icon(Icons.Filled.AccountBox, contentDescription = "")},
+                    label = {Text("Alert Dialogs")},
+                    selected = false,
+                    onClick = {
+                        option = "alert dialogs"
+                        //Accede a la propiedad
+                        scope.launch {
+                            drawerState.apply {
+                                close()
+                            }
+                        }
+                    }
+                )
+            }
+        }
+    ) {
+        Column {
+            when(option){
+                "buttons"  -> {
+                    Buttons()
+                }
+                "floating buttons" -> {
+                    FloatingButtons()
+                }
+                "progress" -> {
+                    Progress()
+                }
+                "chips" -> {
+                    Chips()
+                }
+                "sliders" -> {
+                    Sliders()
+                }
+                "switches" -> {
+                    Switches()
+                }
+                "badge" -> {
+                    Badge()
+                }
+                "snack bars" -> {
+                    SnackBars()
+                }
+                "alert dialogs" -> {
+                    AlertDialogs()
+                }
+            }
+        }
+
+    }
+
 }
 //@Preview(showBackground = true)
 @Composable
@@ -355,7 +536,7 @@ fun SnackBars() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
+//@Preview
 @Composable
 fun AlertDialogs() {
     Column(
@@ -404,5 +585,6 @@ fun AlertDialogs() {
         Text(selectedOption)
     }
 }
+
 
 
